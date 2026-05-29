@@ -23,7 +23,7 @@ class PlaceSerializer(serializers.ModelSerializer):
 
 
 class TravelSerializer(serializers.ModelSerializer):
-    places = PlaceSerializer(many=True, required=True)
+    places = PlaceSerializer(many=True, required=False)
 
     class Meta:
         model = Travel
