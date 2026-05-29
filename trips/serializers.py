@@ -34,8 +34,10 @@ class TravelSerializer(serializers.ModelSerializer):
 
         if places_data and (len(places_data) < 1 or len(places_data) > 10):
             raise serializers.ValidationError(
-                "You must provide between 1 and 10 places."
+                "A project must contain between 1 and 10 places."
             )
+
+        validated_data.pop("places", None)
 
         travel = Travel.objects.create(**validated_data)
 
